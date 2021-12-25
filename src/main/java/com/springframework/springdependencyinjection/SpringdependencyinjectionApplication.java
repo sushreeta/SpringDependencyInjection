@@ -1,9 +1,6 @@
 package com.springframework.springdependencyinjection;
 
-import com.springframework.springdependencyinjection.controllers.ConstructorInjectedController;
-import com.springframework.springdependencyinjection.controllers.MyController;
-import com.springframework.springdependencyinjection.controllers.PropertyInjectedController;
-import com.springframework.springdependencyinjection.controllers.SetterInjectedController;
+import com.springframework.springdependencyinjection.controllers.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -14,6 +11,10 @@ public class SpringdependencyinjectionApplication {
 	public static void main(String[] args) {
 
 		ApplicationContext ctx = SpringApplication.run(SpringdependencyinjectionApplication.class, args); //returns application context
+
+		I18nController i18nController = (I18nController) ctx.getBean("i18nController");
+		System.out.println(i18nController.sayHello());
+
 		MyController myController = (MyController) ctx.getBean("myController");
 
 		System.out.println("------Primary Bean");
